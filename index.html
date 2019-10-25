@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="calc.css" />
+  </head>
+  <body>
+    <div class="calc">
+      <div class="calc__name">Simple JS calculator</div>
+      <b>number 1 </b>
+      <input id="number1" class="input-number" value="6" />
+      <b>number 2 </b>
+      <input id="number2" class="input-number" value="3" />
+      <br />
+      <div class="calc__text-operation"><u>Operation:</u></div>
+      <button id="button__plus" class="calc__buttons">+</button>
+      <button id="button__minus" class="calc__buttons">-</button>
+      <button id="button__multiply" class="calc__buttons">*</button>
+      <button id="button__division" class="calc__buttons">/</button>
+    </div>
+    <script>
+      // find inputs and buttons
+      var inputOne = document.getElementById("number1");
+      var inputTwo = document.getElementById("number2");
+
+      var buttonPlus = document.getElementById("button__plus");
+      var buttonMinus = document.getElementById("button__minus");
+      var buttonMultiply = document.getElementById("button__multiply");
+      var buttonDivision = document.getElementById("button__division");
+
+      /*  get input values, convert string to number,
+      then create conditions for make math operations*/
+      function makeOperation(mathOperation) {
+        var number1 = Number(inputOne.value);
+        var number2 = Number(inputTwo.value);
+
+        if (mathOperation === "+") {
+          var result = number1 + number2;
+        } else if (mathOperation === "-") {
+          var result = number1 - number2;
+        } else if (mathOperation === "*") {
+          var result = number1 * number2;
+        } else if (mathOperation === "/") {
+          var result = number1 / number2;
+        }
+        window.alert("result: " + result);
+      }
+      //create functions parameters
+      function onPlusButtonClick() {
+        makeOperation("+");
+      }
+
+      function onMinusButtonClick() {
+        makeOperation("-");
+      }
+
+      function onMultiplyButtonClick() {
+        makeOperation("*");
+      }
+
+      function onDivisionButtonClick() {
+        makeOperation("/");
+      }
+
+      //  code execution by click
+      buttonPlus.addEventListener("click", onPlusButtonClick);
+      buttonMinus.addEventListener("click", onMinusButtonClick);
+      buttonMultiply.addEventListener("click", onMultiplyButtonClick);
+      buttonDivision.addEventListener("click", onDivisionButtonClick);
+    </script>
+  </body>
+</html>
